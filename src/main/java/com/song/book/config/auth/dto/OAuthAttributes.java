@@ -60,12 +60,12 @@ public class OAuthAttributes {
       .build();
   }
 
-  public User toEntity() {
+  public User toEntity(String registrationId) {
     return User.builder()
         .name(name)
         .email(email)
         .picture(picture)
-        .role(Role.GUEST)
+        .role("naver".equals(registrationId) ? Role.GUEST : Role.USER )
         .build();
   }
 
