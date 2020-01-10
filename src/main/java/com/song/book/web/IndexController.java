@@ -29,16 +29,7 @@ public class IndexController {
     model.addAttribute("posts", postsService.findAllDesc());
 
     if (user != null) {
-//      model.addAttribute("userName", user.getName());
-//      model.addAttribute("userName", "1");
-//      model.addAttribute("userName2", user.getName());
-//      model.addAttribute("user", user);
-      model.addAttribute("user2", user);
-      model.addAttribute("user", httpSession.getAttribute("user"));
       model.addAttribute("userName", user.getName());
-      model.addAttribute("USERName", user.getName());
-      model.addAttribute("name", user.getName());
-
     }
 
     return "index";
