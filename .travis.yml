@@ -43,6 +43,7 @@ deploy:
     bucket: song-springboot-build
     key: freelec-springboot2-webservice.zip #빌드 파일을 압축해서 전달
     bundle_type: zip #압축 확장자
-    application_group: song-springboot2-webservice-group
+    application: song-springboot2-webservice
+    deployment_group: song-springboot2-webservice-group
     region: ap-northeast-2
     wait-until-deployed: true
