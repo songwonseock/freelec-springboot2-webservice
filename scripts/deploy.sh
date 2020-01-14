@@ -22,6 +22,10 @@ else
         sleep 5
 fi
 
+echo "> 디렉토리 이동"
+
+cd $REPOSITORY/
+
 echo "> 새 어플리케이션 배포"
 
 JAR_NAME=$(ls -tr $REPOSITORY/ | grep *.jar | tail -n 1)
