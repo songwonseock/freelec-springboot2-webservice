@@ -24,13 +24,17 @@ fi
 
 echo "> 디렉토리 이동"
 
-cd $REPOSITORY/
+cd $REPOSITORY/zip
 
 echo "> 새 어플리케이션 배포"
 
-JAR_NAME=$(ls -tr $REPOSITORY/ | grep *.jar | tail -n 1)
+JAR_NAME=$(ls -tr $REPOSITORY/zip | grep *.jar | tail -n 1)
 
 echo "> JAR Name: $JAR_NAME"
+
+echo "> 실행디렉토리 이동"
+
+cd $REPOSITORY
 
 echo "> $JAR_NAME 에 실행권한 추가"
 
