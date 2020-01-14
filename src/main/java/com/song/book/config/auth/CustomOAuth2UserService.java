@@ -15,7 +15,6 @@ import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
-import sun.java2d.pipe.SpanShapeRenderer.Simple;
 
 /**
  * @author wonseok.song
@@ -35,9 +34,11 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
     OAuth2User oAuth2User = delegate.loadUser(userRequest);
 
     String registrationId = userRequest.getClientRegistration().getRegistrationId();
-    String userNameAttributeName = userRequest.getClientRegistration().getProviderDetails().getUserInfoEndpoint().getUserNameAttributeName();
+    String userNameAttributeName = userRequest.getClientRegistration().getProviderDetails()
+        .getUserInfoEndpoint().getUserNameAttributeName();
 
-    OAuthAttributes attributes = OAuthAttributes.of(registrationId, userNameAttributeName, oAuth2User.getAttributes());
+    OAuthAttributes attributes = OAuthAttributes
+        .of(registrationId, userNameAttributeName, oAuth2User.getAttributes());
 
     User user = saveOrUpdate(attributes, registrationId);
 
@@ -54,7 +55,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
   private User saveOrUpdate(OAuthAttributes attributes, String registrationId) {
 
     User user = userRepository.findByEmail(attributes.getEmail())
-        .map( entity -> entity.update(attributes.getName(), attributes.getPicture()) )
+        .map(entity -> entity.update(attributes.getName(), attributes.getPicture()))
         .orElse(attributes.toEntity(registrationId));
 
     return userRepository.save(user);
