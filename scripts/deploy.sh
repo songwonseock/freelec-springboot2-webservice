@@ -34,9 +34,9 @@ echo "> JAR Name: $JAR_NAME"
 
 echo "> $JAR_NAME 에 실행권한 추가"
 
-chmod +x freelec-springboot2-webservice-1.0-SNAPSHOT.jar
+chmod +x $JAR_NAME
 
 echo "> $JAR_NAME 실행"
 
-nohup java -jar -Dspring.config.location=classpath:/application.properties,classpath:/application-oauth.properties,/home/ec2-user/app/application-real-db.properties -Dspring.profiles.active=real freelec-springboot2-webservice-1.0-SNAPSHOT.jar > $REPOSITORY/nohup.out 2>&1 &
+nohup java -jar -Dspring.config.location=classpath:/application.properties,classpath:/application-oauth.properties,/home/ec2-user/app/application-real-db.properties -Dspring.profiles.active=real $JAR_NAME > $REPOSITORY/nohup.out 2>&1 &
 #nohup java -jar -Dspring.config.location=classpath:/application.properties,classpath:/application-oauth.properties,/home/ec2-user/app/application-real-db.properties -Dspring.profiles.active=real freelec-springboot2-webservice-1.0-SNAPSHOT.jar > /home/ec2-user/app/step2/nohup.out 2>&1 &
