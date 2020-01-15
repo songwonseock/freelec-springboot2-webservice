@@ -16,7 +16,9 @@ echo "> 새 애플리케이션 배포"
 
 cd $REPOSITORY/zip
 
-JAR_NAME=$(ls -tr $REPOSITORY/zip/*.jar | tail -n 1)
+#JAR_NAME=$(ls -tr $REPOSITORY/zip/*.jar | tail -n 1)
+
+JAR_NAME=$(ls -tr $REPOSITORY/zip | grep *.jar | tail -n 1)
 
 echo "> JAR NAME: $JAR_NAME"
 
